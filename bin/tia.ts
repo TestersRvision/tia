@@ -8,25 +8,26 @@
 
 'use strict';
 
-process.env.SELENIUM_PROMISE_MANAGER = 0;
+process.env.SELENIUM_PROMISE_MANAGER = '0';
 
-const path = require('path');
+import path = require('path');
 
 /* globals gIn: true, gT */
 
-const camelcaseKeys = require('camelcase-keys');
-const createArgs = require('minimist');
-const { inspect } = require('util');
-const _ = require('lodash');
+import camelcaseKeys = require('camelcase-keys');
+import _ = require('lodash');
+import createArgs = require('minimist');
+import { inspect } from 'util';
 
-const nodeUtils = require('../utils/nodejs-utils');
-const argConsts = require('../utils/arg-consts.js');
-const helpUtils = require('../utils/help-utils.js');
-const { runTestSuites } = require('../engine/runner.js');
-const tiaArgsUtils = require('../utils/tia-arguments-utils.js');
+import { runTestSuites } from '../engine/runner.js';
+import argConsts = require('../utils/arg-consts.js');
+import helpUtils = require('../utils/help-utils.js');
+import nodeUtils = require('../utils/nodejs-utils.js');
+import tiaArgsUtils = require('../utils/tia-arguments-utils.js');
 
 const { version } = require('../package.json');
 
+// tslint:disable-next-line: no-console
 console.log(`TIA version: ${version}`);
 
 nodeUtils.checkNodeJsVersion();
@@ -41,7 +42,7 @@ gT.browsers = [
   'firefox',
 ];
 
-function unknownOption(option) {
+function unknownOption(option: string): boolean {
   if (option && option.substr(0, 1) === '-') {
     gIn.cLogger.errln(`Unknown option: "${option}"\n`);
     helpUtils.usage();

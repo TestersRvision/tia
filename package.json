@@ -3,7 +3,7 @@
   "version": "0.19.24",
   "description": "Time is All (logs driven test engine with ExtJs support)",
   "bin": {
-    "tia": "bin/tia.js"
+    "tia": "build/bin/tia.js"
   },
   "scripts": {
     "test": "tia --run-self-tests",
@@ -41,19 +41,26 @@
   "homepage": "https://github.com/Dzenly/tia#readme",
   "dependencies": {
     "camelcase-keys": "^5.0.0",
-    "chalk": "^2.4.1",
-    "chromedriver": "^2.44.0",
+    "chalk": "^2.4.2",
+    "chromedriver": "^2.45.0",
     "debug-assert": "^0.2.3",
-    "diff": "^3.5.0",
+    "diff": "^4.0.1",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
-    "nodemailer": "^4.7.0",
+    "nodemailer": "^5.1.1",
     "nodemailer-smtp-transport": "^2.7.4",
     "selenium-webdriver": "^3.6.0"
   },
   "devDependencies": {
+    "@types/camelcase-keys": "^4.0.0",
+    "@types/chalk": "^2.2.0",
+    "@types/chromedriver": "^2.38.0",
+    "@types/diff": "^3.5.2",
+    "@types/lodash": "^4.14.120",
+    "@types/minimist": "^1.2.0",
     "@types/node": "^10.12.18",
-    "typescript": "^3.2.2",
+    "@types/nodemailer": "^4.6.5",
+    "@types/selenium-webdriver": "^3.0.14",
     "typescript-tslint-plugin": "^0.2.1"
   }
 }
