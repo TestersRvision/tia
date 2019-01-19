@@ -38,7 +38,6 @@ export interface Global {
 
 declare const global: Global;
 
-
 global.gT = {
   sOrig,
 };
