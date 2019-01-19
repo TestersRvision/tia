@@ -6,23 +6,30 @@
 // Test engine init.
 // Fills the gT global object, which will be used in all tests and in the test engine.
 
+import path = require('path');
+
+// Chromedriver needs nodejs.
+process.env.PATH = process.env.PATH + path.delimiter + path.dirname(process.execPath);
+process.env.SELENIUM_PROMISE_MANAGER = '0';
 import wdModule from 'selenium-webdriver';
 
-import path = require('path');
-import { AsyncResource } from 'async_hooks';
+// import { AsyncResource } from 'async_hooks';
 
-interface GlobalTestObject {
-  sOrig: any,
-
-
+interface SeleniumOriginal {
+  wdModule: any,
+  driverLogType: string,
+  browserLogType: string,
 }
 
+interface GlobalTestObject {
+  sOrig: SeleniumOriginal,
+}
 
 const sOrig = {
-
+  wdModule,
+  driverLogType: wdModule.logging.Type.DRIVER,
+  browserLogType: wdModule.logging.Type.BROWSER,
 };
-
-
 
 export interface Global {
   gT: GlobalTestObject,
@@ -32,28 +39,11 @@ export interface Global {
 declare const global: Global;
 
 
-global.gT = {}; // Global object as namespace for objects which user (test writer) can use.
+global.gT = {
+  sOrig,
+};
+
 global.gIn = {}; // Global object as namespace for inner objects.
-
-
-gT.sOrig = {}; // Original selenium API.
-
-// Chromedriver needs nodejs.
-process.env.PATH = process.env.PATH + path.delimiter + path.dirname(process.execPath);
-
-process.env.SELENIUM_PROMISE_MANAGER = "0";
-
-// It is non GUI stuff.
-gT.sOrig.wdModule = require('selenium-webdriver');
-
-// TODO: remove these strings after test.
-// const logging = gT.sOrig.wdModule.logging;
-// logging.installConsoleHandler();
-
-gT.sOrig.driverLogType = gT.sOrig.wdModule.logging.Type.DRIVER;
-gT.sOrig.browserLogType = gT.sOrig.wdModule.logging.Type.BROWSER;
-
-
 
 gIn.configUtils = require('../utils/config-utils');
 
