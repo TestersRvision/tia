@@ -2,7 +2,7 @@
 
 const { t, l, s } = gT;
 
-async function test() {
+module.exports = async function test() {
   t.setTitle('Test for client interaction with a browser');
   await s.driver.init();
 
@@ -28,4 +28,3 @@ async function test() {
   // yield s.driver.quit();
 }
 
-module.exports = test();

@@ -25,14 +25,14 @@ import helpUtils = require('../utils/help-utils.js');
 import nodeUtils = require('../utils/nodejs-utils.js');
 import tiaArgsUtils = require('../utils/tia-arguments-utils.js');
 
-const { version } = require('../package.json');
+import { version } from '../package.json';
 
 // tslint:disable-next-line: no-console
 console.log(`TIA version: ${version}`);
 
 nodeUtils.checkNodeJsVersion();
 
-require('../engine/init-global-objects.js');
+import '../engine/init-global-objects';
 
 gT.version = version;
 

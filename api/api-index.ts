@@ -39,7 +39,7 @@ gT.t = require('./test.js');
 
 // ==================================================
 
-gIn.wrap = require('./../engine/wrap.js');
+gIn.wrap = require('../engine/wrap.ts');
 
 // ==================================================
 

@@ -2,12 +2,12 @@
 
 /* globals gT: true, gIn: true */
 
-const path = require('path');
-const nodeUtils = require('../utils/nodejs-utils.js');
-const _ = require('lodash');
+// import path from 'path';
+import * as _ from 'lodash';
+import nodeUtils from './nodejs-utils.js';
 
 // Returns merged config for suite.
-exports.handleSuiteConfig = function handleSuiteConfig() {
+export function handleSuiteConfig() {
   let localSuiteConfig = {};
 
   // TODO: current suite dir.

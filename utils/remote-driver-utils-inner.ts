@@ -3,13 +3,13 @@
 // This intermediate process is needed because WebStorm closes detached child processes
 // when stops debugging.
 
-const fs = require('fs');
-const { spawn } = require('child_process');
+import {ChildProcess, spawn} from 'child_process';
+import * as fs from 'fs';
 
 const errorReportFilePath = '/home/alexey/projects/work/tia-tests/fname';
 
 process.on('message', (data) => {
-  let child;
+  let child: ChildProcess;
 
   try {
     child = spawn(
@@ -29,7 +29,9 @@ process.on('message', (data) => {
   setTimeout(() => {
     try {
       child.unref();
-      process.send('chromedriver started');
+      if (process.send) {
+        process.send('chromedriver started');
+      }
       process.disconnect();
       process.exit(0);
     } catch (err) {

@@ -3,12 +3,13 @@
 /* globals gT: true */
 /* globals gIn: true */
 
-const fs = require('fs');
-const path = require('path');
-const _ = require('lodash');
-const nodeUtils = require('../utils/nodejs-utils.js');
-const fileUtils = require('../utils/file-utils.js');
-const suiteUtils = require('../utils/suite-utils.js');
+import * as fs from 'fs';
+import * as path from 'path';
+
+import _ = require('lodash');
+import fileUtils = require('../utils/file-utils.js');
+import nodeUtils = require('../utils/nodejs-utils.js');
+import suiteUtils = require('../utils/suite-utils.js');
 
 function getOs() {
   const os = require('os');

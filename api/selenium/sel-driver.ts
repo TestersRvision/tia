@@ -5,7 +5,7 @@
 
 const mpath = require('path');
 const util = require('util');
-const fileUtils = require('../../utils/file-utils.js');
+const fileUtils = require('../../utils/file-utils.ts');
 
 function createBrowserProfile() {
   fileUtils.mkdir(gIn.suite.browserProfilePath);
