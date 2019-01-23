@@ -1,18 +1,18 @@
 'use strict';
 
-const { result } = require('../common-misc-utils.js');
+const { result } = require('../common-misc-utils');
 
 const obj = {
   a: {
     b: {
       c() {
         return 'a.b.c func result';
-      }
-    }
+      },
+    },
   },
   d: [
     'd[0]',
-    'd[1]'
+    'd[1]',
   ],
   e: 'e',
 };
@@ -24,8 +24,5 @@ l.println(result(obj, 'd.0'));
 l.println(result(obj, 'e'));
 l.println(result(obj, 'e.f', 'default for e.f'));
 l.println(result(obj, 'g.f', 'default for g.f'));
-
-
-
 
 

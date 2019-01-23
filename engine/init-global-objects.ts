@@ -50,69 +50,70 @@ import * as configUtils from '../utils/config-utils';
 // gIn.configUtils = configUtils;
 
 // gT
-import engineConsts from '../config/engine-constants.js';
+import engineConsts from '../config/engine-constants';
 
 // gT
-import suiteConfigDefault from '../config/default-suite-config.js';
+import suiteConfigDefault from '../config/default-suite-config';
 
 // gT
-import * as globalConfigDefault from '../config/default-global-config.js';
+import * as globalConfigDefault from '../config/default-global-config';
 
 // gT
-import * as dirConfigDefault from '../config/default-dir-config.js';
+import * as dirConfigDefault from '../config/default-dir-config';
 
 // gIn
-import loggerCfg from './loggers/logger-cfg.js';
+import loggerCfg from './loggers/logger-cfg';
 
 // gIn
-import cLogger from './loggers/console-logger.js';
+import cLogger from './loggers/console-logger';
 
 // gIn
-import api from '../api/api-index.js';
+import api from '../api/api-index';
 
 // gIn
-import * as logger from './loggers/logger.js';
+import * as logger from './loggers/logger';
 
 // gIn
-import * as tracer from './tracer.js';
+import * as tracer from './tracer';
 
 // gT
-import commonMiscUtils = require('../common-utils/common-misc-utils.js');
+import commonMiscUtils = require('../common-utils/common-misc-utils');
 
 // gT
-import commonConsts = require('../common-utils/common-constants.js');
+import commonConsts = require('../common-utils/common-constants');
 
 // gIn
-import * as fileUtils from '../utils/file-utils.js';
+import * as fileUtils from '../utils/file-utils';
 
 // gIn
-import * as textUtils from '../utils/text-utils.js';
+import * as textUtils from '../utils/text-utils';
 
 // gT
-import * as timeUtils from '../utils/time-utils.js';
+import * as timeUtils from '../utils/time-utils';
 
 // gIn
-import * as tInfo from './test-info.js';
+import * as tInfo from './test-info';
 
 // gIn
-import * as diffUtils from '../utils/diff-utils.js';
+import * as diffUtils from '../utils/diff-utils';
 
 // gIn
-import * as mailUtils from '../utils/mail-utils.js';
+import * as mailUtils from '../utils/mail-utils';
 
 // gIn
-import * as remoteDriverUtils from '../utils/remote-driver-utils.js';
+import * as remoteDriverUtils from '../utils/remote-driver-utils';
 
 // gT
-import * as nodeUtils from '../utils/nodejs-utils.js';
+import * as nodeUtils from '../utils/nodejs-utils';
 
 // gIn
-import * as wrap from './wrap.js';
+import * as wrap from './wrap';
 
 global.gT = {
   sOrig,
+  engineConsts,
 };
 
 global.gIn = {
-
+  configUtils,
 };

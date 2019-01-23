@@ -19,11 +19,11 @@ import _ = require('lodash');
 import createArgs = require('minimist');
 import { inspect } from 'util';
 
-import { runTestSuites } from '../engine/runner.js';
-import argConsts = require('../utils/arg-consts.js');
-import helpUtils = require('../utils/help-utils.js');
-import nodeUtils = require('../utils/nodejs-utils.js');
-import tiaArgsUtils = require('../utils/tia-arguments-utils.js');
+import { runTestSuites } from '../engine/runner';
+import argConsts = require('../utils/arg-consts');
+import helpUtils = require('../utils/help-utils');
+import nodeUtils = require('../utils/nodejs-utils');
+import tiaArgsUtils = require('../utils/tia-arguments-utils');
 
 import { version } from '../package.json';
 

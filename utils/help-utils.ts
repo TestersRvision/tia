@@ -1,6 +1,6 @@
 'use strict';
 
-const argConsts = require('./arg-consts.ts');
+const argConsts = require('./arg-consts');
 
 /* global gT */
 
@@ -87,7 +87,9 @@ exports.usage = function usage() {
       See tia/config/default-suite-config.js for more details.
       Options from your email config will be merged into tia-root-suite-config.js, and so,
       merged into all tia-suite-config.js. But tia-suite-config.js can override options.
-      Note: ${gT.engineConsts.emailCfgPathEnvVarName} environment variable can be used for the same purpose.
+      Note: ${
+        gT.engineConsts.emailCfgPathEnvVarName
+      } environment variable can be used for the same purpose.
 
       --enable-email - enables email.
 
@@ -104,7 +106,9 @@ exports.usage = function usage() {
       -h, --help - Print this help.
 
       --hang-timeout <timeout> - timeout in milliseconds after which some action considered as hanged one,
-      a screenshot is saved and an error is generated. ${gT.engineConsts.hangTimeout} milliseconds by default.
+      a screenshot is saved and an error is generated. ${
+        gT.engineConsts.hangTimeout
+      } milliseconds by default.
 
       --headless, - use headless browser (chrome and firefox only).
 
@@ -158,7 +162,9 @@ exports.usage = function usage() {
 
       --root-dir <Root Directory to find tests> - root directory to test
       (can be relative to current working dir).
-      It there is no --root-dir, tia will check ${gT.engineConsts.rootDirEnvVarName} environment variable.
+      It there is no --root-dir, tia will check ${
+        gT.engineConsts.rootDirEnvVarName
+      } environment variable.
       If there is no such env variable, current working directory will be used as root.
 
       --too-long-time <duration>. If tests running exceeded the specified milliseconds amount.

@@ -26,7 +26,7 @@ require('./log/log-index');
  * Low level API for tests. It can be used for helpers writing.
  * @type {{}}
  */
-gT.lL = require('./low-level.js');
+gT.lL = require('./low-level');
 
 // ==================================================
 
@@ -35,11 +35,11 @@ gT.lL = require('./low-level.js');
  *
  * @type {{}}
  */
-gT.t = require('./test.js');
+gT.t = require('./test');
 
 // ==================================================
 
-gIn.wrap = require('../engine/wrap.ts');
+gIn.wrap = require('../engine/wrap');
 
 // ==================================================
 
@@ -48,7 +48,7 @@ gIn.wrap = require('../engine/wrap.ts');
  *
  * @type {{}}
  */
-gT.a = require('./assertions.js');
+gT.a = require('./assertions');
 
 // ==================================================
 
@@ -58,7 +58,7 @@ gT.a = require('./assertions.js');
  */
 gT.s = {};
 
-require('./selenium/sel-index.js');
+require('./selenium/sel-index');
 
 // ==================================================
 
@@ -68,7 +68,7 @@ require('./selenium/sel-index.js');
  */
 gT.u = {};
 
-require('./utils/utils-index.js');
+require('./utils/utils-index');
 
 // ==================================================
 
@@ -76,6 +76,6 @@ gT.hL = require('./high-level');
 
 // ==================================================
 
-require('./extjs/extjs-index.js');
+require('./extjs/extjs-index');
 
 // ==================================================;

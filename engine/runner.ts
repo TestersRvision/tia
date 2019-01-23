@@ -7,9 +7,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import _ = require('lodash');
-import fileUtils = require('../utils/file-utils.js');
-import nodeUtils = require('../utils/nodejs-utils.js');
-import suiteUtils = require('../utils/suite-utils.js');
+import fileUtils = require('../utils/file-utils');
+import nodeUtils = require('../utils/nodejs-utils');
+import suiteUtils = require('../utils/suite-utils');
 
 function getOs() {
   const os = require('os');

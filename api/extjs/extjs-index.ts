@@ -77,25 +77,25 @@ gT.e.setLocaleObject = function setLocaleObject(objExpression, logAction) {
 };
 
 gT.e.utils = require('./extjs-utils');
-gT.e.api = require('./extjs-api-actions.js');
-gT.e.explore = require('./extjs-exploration.js');
-gT.e.search = require('./extjs-search.ts');
-gT.e.sendKeys = require('./extjs-send-keys.ts');
-gT.e.logCtById = require('./extjs-log-by-id.ts');
-gT.e.logCtByFormIdName = require('./extjs-log-by-formIdName.ts');
+gT.e.api = require('./extjs-api-actions');
+gT.e.explore = require('./extjs-exploration');
+gT.e.search = require('./extjs-search');
+gT.e.sendKeys = require('./extjs-send-keys');
+gT.e.logCtById = require('./extjs-log-by-id');
+gT.e.logCtByFormIdName = require('./extjs-log-by-formIdName');
 gT.e.logUtils = require('./extjs-log-utils');
-gT.e.getByFormIdName = require('./extjs-get-by-formIdName.js');
-gT.e.msgBox = require('./extjs-msgbox.ts');
+gT.e.getByFormIdName = require('./extjs-get-by-formIdName');
+gT.e.msgBox = require('./extjs-msgbox');
 
-gT.e.hL = require('./extjs-hl.js');
+gT.e.hL = require('./extjs-hl');
 
-gT.e.lClick = require('./extjs-l-clicks.ts');
-gT.e.lClick.cb = require('./extjs-l-clicks-cb.ts');
+gT.e.lClick = require('./extjs-l-clicks');
+gT.e.lClick.cb = require('./extjs-l-clicks-cb');
 
-gT.e.wait = require('./extjs-waits.ts');
+gT.e.wait = require('./extjs-waits');
 
-gT.e.query = require('./extjs-query.ts');
-gT.e.queryFromParent = require('./extjs-query-from-parent.ts');
+gT.e.query = require('./extjs-query');
+gT.e.queryFromParent = require('./extjs-query-from-parent');
 
 gT.e.q = gT.e.query;
 gT.e.qp = gT.e.queryFromParent;

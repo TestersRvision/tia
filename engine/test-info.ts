@@ -3,7 +3,7 @@
 /* globals gIn */
 
 const mPath = require('path');
-const fileUtils = require('../utils/file-utils.ts');
+const fileUtils = require('../utils/file-utils');
 
 exports.isPassCountingEnabled = true;
 exports.isPassPrintingEnabled = true;

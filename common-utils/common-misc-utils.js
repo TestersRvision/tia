@@ -6,7 +6,7 @@
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     container = exports;
-    container.getDebugMode = function () {
+    container.getDebugMode = function() {
       return false;
     };
   } else {
@@ -56,8 +56,14 @@
           continue;
         }
         if (typeof dst[prop] !== 'undefined' && typeof dst[prop] !== typeof src[prop]) {
-          throw Error('Unexpected type for prop: ' + prop + ', expected: ' + typeof dst[prop]
-            + ', actual: ' + typeof src[prop]);
+          throw Error(
+            'Unexpected type for prop: ' +
+              prop +
+              ', expected: ' +
+              typeof dst[prop] +
+              ', actual: ' +
+              typeof src[prop]
+          );
         }
         if (typeof dst[prop] === 'object') {
           handleObj(src[prop], dst[prop]);
@@ -110,13 +116,12 @@
     var actualPropPathArr;
     var actPropPathStr;
     try {
-      outerLoop:
-      for (var i = 0, len1 = propPaths.length; i < len1; i++) {
+      outerLoop: for (var i = 0, len1 = propPaths.length; i < len1; i++) {
         var propPath = propPaths[i];
 
-        var argsArr = void (0);
-        var alias = void (0);
-        var quotes = void (0)
+        var argsArr = void 0;
+        var alias = void 0;
+        var quotes = void 0;
 
         if (typeof propPath === 'object') {
           argsArr = propPath.args;
@@ -161,7 +166,7 @@
                 }
               }
 
-              var args = void (0);
+              var args = void 0;
               if (argsArr) {
                 args = argsArr[argsIndex];
                 argsIndex++;
@@ -186,13 +191,17 @@
         if (typeof propPathVal === 'object') {
           propPathVal = JSON.stringify(propPathVal);
         }
-        if (typeof propPathVal === 'undefined' && errMode === container.dumpObjErrMode.omitStringIfUndefined) {
+        if (
+          typeof propPathVal === 'undefined' &&
+          errMode === container.dumpObjErrMode.omitStringIfUndefined
+        ) {
           continue;
         }
 
         dstArr.push(
-          (alias ? alias : actualPropPathArr.join('.')) + ': '
-          + (quotes ? ('"' + propPathVal + '"') : propPathVal)
+          (alias ? alias : actualPropPathArr.join('.')) +
+            ': ' +
+            (quotes ? '"' + propPathVal + '"' : propPathVal)
         );
       }
     } catch (e) {
@@ -247,7 +256,7 @@
 
     var mapEntries = Object.entries(map);
 
-    mapEntries.forEach(function (entry) {
+    mapEntries.forEach(function(entry) {
       var key = entry[0];
       var value = entry[1];
 
@@ -261,7 +270,7 @@
 
     var invertedMapAllKeys = Object.create(null);
     var invertedMapEntries = Object.entries(invertedMapArrAllKeys);
-    invertedMapEntries.forEach(function (entry) {
+    invertedMapEntries.forEach(function(entry) {
       var key = entry[0];
       var value = entry[1];
       invertedMapAllKeys[key] = value.join(', ');
@@ -271,6 +280,5 @@
       invertedMapFirstKey: invertedMapFirstKey,
       invertedMapAllKeys: invertedMapAllKeys,
     };
-  }
-
-}());
+  };
+})();

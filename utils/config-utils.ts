@@ -4,7 +4,7 @@
 
 // import path from 'path';
 import * as _ from 'lodash';
-import nodeUtils from './nodejs-utils.js';
+import nodeUtils from './nodejs-utils';
 
 // Returns merged config for suite.
 export function handleSuiteConfig() {
