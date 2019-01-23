@@ -19,7 +19,7 @@ import _ = require('lodash');
 import createArgs = require('minimist');
 import { inspect } from 'util';
 
-import { runTestSuites } from '../engine/runner';
+import runTestSuites from '../engine/runner';
 import argConsts = require('../utils/arg-consts');
 import helpUtils = require('../utils/help-utils');
 import nodeUtils = require('../utils/nodejs-utils');
@@ -35,12 +35,6 @@ nodeUtils.checkNodeJsVersion();
 import '../engine/init-global-objects';
 
 gT.version = version;
-
-gT.browsers = [
-  'chrome', // First browser is default.
-  'phantomjs',
-  'firefox',
-];
 
 function unknownOption(option: string): boolean {
   if (option && option.substr(0, 1) === '-') {

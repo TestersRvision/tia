@@ -1,17 +1,16 @@
 'use strict';
 
-const util = require('util');
-
-const { dirSep } = require('path');
+import { dirSep } from 'path';
+import util from 'util';
 
 /* globals gIn */
 
-exports.removeSelSid = function removeSelSid(str) {
+export function removeSelSid(str) {
   const re = /\?_dc=\d+/g;
   return str.replace(re, '');
 };
 
-exports.filterStack = function filterStack(strStack) {
+export function filterStack(strStack) {
   const stArr = strStack.split('\n');
   const newArr = stArr.filter((el) => {
     const startingFrom = el.indexOf('/tia/');
@@ -20,7 +19,7 @@ exports.filterStack = function filterStack(strStack) {
   return newArr.join('\n');
 };
 
-exports.excToStr = function excToStr(err, noStack) {
+export function excToStr(err, noStack) {
   if (typeof err === 'undefined') {
     return '\nNo Exception info\n';
   }
@@ -35,15 +34,15 @@ exports.excToStr = function excToStr(err, noStack) {
   return errStr;
 };
 
-exports.winToUnixSep = function winToUnixSep(path) {
+export function winToUnixSep(path) {
   return path.replace(/\\\\/g, '/');
 };
 
-exports.changeExt = function changeExt(jsPath, newExt) {
+export function changeExt(jsPath, newExt) {
   return jsPath.substr(0, jsPath.length - 3) + newExt;
 };
 
-exports.jsToEt = function jsToEt(jsPath) {
+export function jsToEt(jsPath) {
   return exports.changeExt(jsPath, '.et');
 };
 
@@ -52,23 +51,23 @@ exports.jsToEt = function jsToEt(jsPath) {
  * Just replaces two last symbols by 'log' at the end of string.
  * @param jsPath - path to js file.
  */
-exports.jsToLog = function jsToLog(jsPath) {
+export function jsToLog(jsPath) {
   return exports.changeExt(jsPath, '.log');
 };
 
-exports.jsToDif = function jsToDif(jsPath) {
+export function jsToDif(jsPath) {
   return exports.changeExt(jsPath, '.dif');
 };
 
-exports.expandHost = function expandHost(str) {
+export function expandHost(str) {
   return str.replace('$(host)', gIn.config.selHost);
 };
 
-exports.collapseHost = function collapseHost(str) {
+export function collapseHost(str) {
   return str.replace(gIn.config.selHost, '$(host)');
 };
 
-exports.valToStr = function valToStr(value) {
+export function valToStr(value) {
   if (Buffer.isBuffer(value)) {
     return value.toString('utf8');
   }

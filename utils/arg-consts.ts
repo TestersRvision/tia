@@ -1,4 +1,6 @@
-exports.allowedSlogSubj = [
+const allowedSlogSubj = [
   'run',
   'pass',
 ];
+
+export default allowedSlogSubj;

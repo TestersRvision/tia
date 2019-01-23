@@ -1,10 +1,12 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const childProcess = require('child_process');
-const textUtils = require('./text-utils');
+import fs from 'fs';
 
+import path from 'path';
+
+import * as textUtils from './text-utils';
+
+import childProcess from 'child_process';
 /* globals gT, gIn */
 
 // TODO: сделать так, чтобы тесты работали под правами специально заведеного юзера.
@@ -22,7 +24,7 @@ const textUtils = require('./text-utils');
  * @param fileOrDirPath
  * @returns {boolean}
  */
-exports.isAbsent = function isAbsent(fileOrDirPath) {
+export function isAbsent(fileOrDirPath) {
   try {
     fs.statSync(fileOrDirPath);
   } catch (e) {
@@ -31,7 +33,7 @@ exports.isAbsent = function isAbsent(fileOrDirPath) {
   return false;
 };
 
-exports.isEtalonAbsent = function isEtalonAbsent(jsPath) {
+export function isEtalonAbsent(jsPath) {
   const etPath = textUtils.jsToEt(jsPath);
   try {
     fs.statSync(etPath);
@@ -41,7 +43,7 @@ exports.isEtalonAbsent = function isEtalonAbsent(jsPath) {
   return false;
 };
 
-exports.safeUnlink = function safeUnlink(fileOrDirPath) {
+export function safeUnlink(fileOrDirPath) {
   try {
     fs.unlinkSync(fileOrDirPath);
   } catch (e) {
@@ -49,7 +51,7 @@ exports.safeUnlink = function safeUnlink(fileOrDirPath) {
   }
 };
 
-exports.safeReadFile = function safeReadFile(fileOrDirPath) {
+export function safeReadFile(fileOrDirPath) {
   let res = '';
   try {
     res = fs.readFileSync(fileOrDirPath, gT.engineConsts.logEncoding);
@@ -60,7 +62,7 @@ exports.safeReadFile = function safeReadFile(fileOrDirPath) {
   return res;
 };
 
-exports.backupDif = function backupDif(fileOrDirPath) {
+export function backupDif(fileOrDirPath) {
   try {
     fs.renameSync(fileOrDirPath, `${fileOrDirPath}.old`);
   } catch (e) {
@@ -68,7 +70,7 @@ exports.backupDif = function backupDif(fileOrDirPath) {
   }
 };
 
-exports.rmPngs = function rmPngs(jsPath) {
+export function rmPngs(jsPath) {
   const dir = path.dirname(jsPath);
   const start = path.basename(textUtils.changeExt(jsPath, ''));
 
@@ -82,7 +84,7 @@ exports.rmPngs = function rmPngs(jsPath) {
   });
 };
 
-exports.rmDir = function rmDir(dir, removeSelf) {
+export function rmDir(dir, removeSelf) {
   let files;
   try {
     files = fs.readdirSync(dir);
@@ -113,11 +115,11 @@ exports.rmDir = function rmDir(dir, removeSelf) {
   }
 };
 
-exports.emptyDir = function emptyDir(dir) {
+export function emptyDir(dir) {
   exports.rmDir(dir);
 };
 
-exports.safeRename = function safeRename(oldPath, newPath) {
+export function safeRename(oldPath, newPath) {
   exports.safeUnlink(newPath);
   try {
     fs.renameSync(oldPath, newPath);
@@ -127,25 +129,25 @@ exports.safeRename = function safeRename(oldPath, newPath) {
 };
 
 // Removes file, if exists.
-exports.createEmptyFileSync = function createEmptyFileSync(fileOrDirPath) {
+export function createEmptyFileSync(fileOrDirPath) {
   fs.closeSync(fs.openSync(fileOrDirPath, 'w'));
 };
 
-exports.createEmptyLog = function createEmptyLog(fileOrDirPath) {
+export function createEmptyLog(fileOrDirPath) {
   gIn.logger.logFile = gIn.textUtils.jsToLog(fileOrDirPath);
   exports.createEmptyFileSync(gIn.logger.logFile);
 };
 
-exports.fileToStdout = function fileToStdout(file) {
+export function fileToStdout(file) {
   console.log(fs.readFileSync(file, { encoding: gT.engineConsts.logEncoding }));
 };
 
-exports.fileToStderr = function fileToStderr(file) {
+export function fileToStderr(file) {
   // console.error(fs.readFileSync(file, {encoding: gT.engineConsts.logEncoding}));
   gIn.cLogger.errln(fs.readFileSync(file, { encoding: gT.engineConsts.logEncoding }));
 };
 
-exports.saveJson = function saveJson(obj, file) {
+export function saveJson(obj, file) {
   fs.writeFileSync(file, JSON.stringify(obj, null, 2), { encoding: gT.engineConsts.logEncoding });
 };
 
@@ -165,7 +167,7 @@ function collectArcPaths(dirInfo, arcPaths) {
   }
 }
 
-exports.getDirectoryAlias = function getDirectoryAlias(dirPath) {
+export function getDirectoryAlias(dirPath) {
   const pathArr = dirPath.split(path.sep);
   const last = pathArr.pop();
   if (last !== gT.engineConsts.suiteDirName) {
@@ -178,7 +180,7 @@ exports.getDirectoryAlias = function getDirectoryAlias(dirPath) {
   return alias;
 };
 
-exports.archiveSuiteDir = function archiveSuiteDir(dirInfo) {
+export function archiveSuiteDir(dirInfo) {
   if (!gIn.params.enableEmail || !gT.suiteConfig.attachArchiveToMail || !gT.suiteConfig.mailRecipientList) {
     return null;
   }
@@ -237,7 +239,7 @@ exports.archiveSuiteDir = function archiveSuiteDir(dirInfo) {
   return resultArchivePath;
 };
 
-exports.isDirectory = function isDirectory(fileOrDirPath) {
+export function isDirectory(fileOrDirPath) {
   let stat;
   try {
     stat = fs.statSync(fileOrDirPath);
@@ -248,7 +250,7 @@ exports.isDirectory = function isDirectory(fileOrDirPath) {
   return stat.isDirectory();
 };
 
-exports.mkdir = function mkdir(dirPath) {
+export function mkdir(dirPath) {
   try {
     fs.mkdirSync(dirPath);
   } catch (e) {
@@ -256,7 +258,7 @@ exports.mkdir = function mkdir(dirPath) {
   }
 };
 
-exports.mkDirRecursive = function mkDirRecursive(targetDir, subDirsArr) {
+export function mkDirRecursive(targetDir, subDirsArr) {
   let curPath = targetDir;
   subDirsArr.forEach((dir) => {
     curPath = path.join(curPath, dir);
@@ -264,7 +266,7 @@ exports.mkDirRecursive = function mkDirRecursive(targetDir, subDirsArr) {
   });
 };
 
-exports.rmLastDirSep = function rmLastDirSep(dir) {
+export function rmLastDirSep(dir) {
   if (dir[dir.length - 1] === path.sep) {
     return dir.slice(0, -1);
   }
@@ -272,7 +274,7 @@ exports.rmLastDirSep = function rmLastDirSep(dir) {
 };
 
 // One of filenames.
-exports.whichDirContain = function doesDirContain(base, fileNames, excludeThisBase) {
+export function whichDirContain(base, fileNames, excludeThisBase) {
   const dirList = fs.readdirSync(base);
 
   for (const name of dirList) {

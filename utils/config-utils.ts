@@ -4,10 +4,10 @@
 
 // import path from 'path';
 import * as _ from 'lodash';
-import nodeUtils from './nodejs-utils';
+import * as nodeUtils from './nodejs-utils';
 
 // Returns merged config for suite.
-export function handleSuiteConfig() {
+export default function handleSuiteConfig() {
   let localSuiteConfig = {};
 
   // TODO: current suite dir.

@@ -7,9 +7,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import _ = require('lodash');
-import fileUtils = require('../utils/file-utils');
-import nodeUtils = require('../utils/nodejs-utils');
-import suiteUtils = require('../utils/suite-utils');
+import * as fileUtils from '../utils/file-utils';
+import * as nodeUtils from '../utils/nodejs-utils';
+import * as suiteUtils from '../utils/suite-utils';
 
 function getOs() {
   const os = require('os');
@@ -490,7 +490,7 @@ function getTestSuitePaths() {
 
 
 // Returns subject for email.
-exports.runTestSuites = async function runTestSuites() {
+export default async function runTestSuites() {
   fileUtils.safeUnlink(gT.rootLog);
 
   if (gIn.params.stopRemoteDriver) {

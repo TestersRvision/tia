@@ -60,6 +60,7 @@
     "@types/minimist": "^1.2.0",
     "@types/node": "^10.12.18",
     "@types/nodemailer": "^4.6.5",
+    "@types/nodemailer-smtp-transport": "^2.7.4",
     "@types/selenium-webdriver": "^3.0.14",
     "typescript-tslint-plugin": "^0.2.1"
   }

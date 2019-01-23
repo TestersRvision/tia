@@ -37,15 +37,15 @@ import wdModule from 'selenium-webdriver';
 declare const global: any;
 
 const sOrig = {
-  wdModule,
-  driverLogType: wdModule.logging.Type.DRIVER,
   browserLogType: wdModule.logging.Type.BROWSER,
+  driverLogType: wdModule.logging.Type.DRIVER,
+  wdModule,
 };
 
 // global.gIn = {}; // Global object as namespace for inner objects.
 
 // gIn
-import * as configUtils from '../utils/config-utils';
+import configUtils from '../utils/config-utils';
 
 // gIn.configUtils = configUtils;
 
@@ -62,7 +62,7 @@ import * as globalConfigDefault from '../config/default-global-config';
 import * as dirConfigDefault from '../config/default-dir-config';
 
 // gIn
-import loggerCfg from './loggers/logger-cfg';
+import * as loggerCfg from './loggers/logger-cfg';
 
 // gIn
 import cLogger from './loggers/console-logger';
@@ -110,10 +110,21 @@ import * as nodeUtils from '../utils/nodejs-utils';
 import * as wrap from './wrap';
 
 global.gT = {
-  sOrig,
+  browsers: [
+    'chrome', // First browser is default.
+    'phantomjs',
+    'firefox',
+  ],
+  dirConfigDefault,
   engineConsts,
+  globalConfigDefault,
+  sOrig,
+  suiteConfigDefault,
+  version: '',
 };
 
 global.gIn = {
   configUtils,
+  loggerCfg,
+
 };

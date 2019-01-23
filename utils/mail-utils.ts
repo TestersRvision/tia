@@ -2,11 +2,10 @@
 
 /* globals gIn: true */
 
-const nodemailer = require('nodemailer');
-const smtpTransport = require('nodemailer-smtp-transport');
+import * as fileUtils from './file-utils';
 
-const fileUtils = require('./file-utils');
-
+import nodemailer = require('nodemailer');
+import smtpTransport = require('nodemailer-smtp-transport');
 /* globals gT: true */
 
 // create reusable transporter object using SMTP transport

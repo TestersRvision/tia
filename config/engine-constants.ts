@@ -1,7 +1,7 @@
 'use strict';
 
 // This config is used by all Test suites. They are not overloaded.
-module.exports = {
+const engineConstants = {
 
   rootDirEnvVarName: 'TIA_ROOT_DIR',
 
@@ -28,11 +28,11 @@ module.exports = {
 
   suiteLogName: 'suite',
 
+  requireModulesEnvVarName: 'TIA_REQUIRE_MODULES',
+
   rootLogName: 'root',
 
   tiaSuffix: '.tia.js', // Only files with this suffix are considered as test for TIA.
-
-  requireModulesEnvVarName: 'TIA_REQUIRE_MODULES',
 
   // These patterns are ignored.
   patternsToIgnore: [/^\./, /^node_modules$/],
@@ -138,3 +138,5 @@ module.exports = {
   CANCELLING_THE_SUITE: 'Force cancelling the suite',
 
 };
+
+export default engineConstants;

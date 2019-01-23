@@ -1,22 +1,18 @@
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
-
-const diffJs = require('diff');
-
-// const colors = require('colors/safe');
-const chalk = require('chalk');
+import fs from 'fs';
+import path from 'path';
 
 // const ansiToHtml = require('ansi-to-html')
+import diffJs = require('diff');
+import * as fileUtils from './file-utils';
 
-const fileUtils = require('./file-utils');
-
-
+// const colors = require('colors/safe');
+import chalk = require('chalk');
 /* globals gT: true */
 /* globals gIn: true */
 // ansi, html.
-exports.getStructuredPatch = function getStructuredPatch({
+export function getStructuredPatch({
   dir,
   oldFile,
   newFile,
@@ -107,7 +103,7 @@ exports.getStructuredPatch = function getStructuredPatch({
  * @param oldFile - basename for file 1
  * @param newFile - basename for file 2
  */
-exports.getDiff = function getDiff({
+export function getDiff({
   dir,
   oldFile,
   newFile,
@@ -178,7 +174,7 @@ ${strArr.join(eol)}
  * @param jsTest - path to js file, for which just created *.log
  * to be diffed with *.et.
  */
-exports.diff = function diff({
+export function diff({
   jsTest,
   highlight,
   htmlWrap,

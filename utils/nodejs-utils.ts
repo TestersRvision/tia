@@ -10,7 +10,7 @@ const _ = require('lodash');
  * Clears 'require' cache for specified node module.
  * @param {String} resolvedModulePath
  */
-exports.clearRequireCache = function clearRequireCache(resolvedModulePath) {
+export function clearRequireCache(resolvedModulePath) {
   delete require.cache[resolvedModulePath];
 };
 
@@ -22,7 +22,7 @@ exports.clearRequireCache = function clearRequireCache(resolvedModulePath) {
  * @returns {{res: *, resolvedModPath: String}}
  * @throws {*} - Exceptions from 'require' calls.
  */
-exports.requireEx = function requireEx(modPath, clearCache) {
+export function requireEx(modPath, clearCache) {
   const absFilePath = path.resolve(modPath);
   const res = {
     result: require(absFilePath),
@@ -41,7 +41,7 @@ exports.requireEx = function requireEx(modPath, clearCache) {
  * @param modPath - path to module.
  * @return {*} - exports from existing module or empty object if module is absent.
  */
-exports.requireIfExists = function requireIfExists(modPath) {
+export function requireIfExists(modPath) {
 
   try {
     return require(modPath);
@@ -60,7 +60,7 @@ function toMs(val) {
   return (val / 1000).toFixed(3);
 }
 
-exports.getResourcesUsage = function getResourcesUsage(isTestLog) {
+export function getResourcesUsage(isTestLog) {
   // gIn.config.rssUsageThreshold
 
   const mem = process.memoryUsage();
@@ -82,7 +82,7 @@ exports.getResourcesUsage = function getResourcesUsage(isTestLog) {
   return str;
 };
 
-exports.getProcInfo = function getProcInfo() {
+export function getProcInfo() {
   // Env: ${inspect(process.env)}
   const str = `
 Arch: ${process.arch}
@@ -99,14 +99,14 @@ ${exports.getResourcesUsage()}`;
   return str;
 };
 
-exports.isPromise = function isPromise(p) {
+export function isPromise(p) {
   if (_.isObject(p) && _.isFunction(p.then)) {
     return true;
   }
   return false;
 };
 
-exports.checkNodeJsVersion = function checkNodeJsVersion() {
+export function checkNodeJsVersion() {
   const majVersion = process.version.match(/\d+/)[0];
   if (majVersion < 8) {
     console.error(`Node.js less then 8.x.x is not supported, your version: ${process.version}`);
@@ -114,7 +114,7 @@ exports.checkNodeJsVersion = function checkNodeJsVersion() {
   }
 };
 
-exports.requireArray = function requireArray(modules) {
+export function requireArray(modules) {
   modules.forEach((modulePath) => {
     const modPath = path.resolve(gIn.params.rootDir, modulePath);
     gIn.tracer.msg1(`Requiring module: ${modPath}`);

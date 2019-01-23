@@ -2,10 +2,12 @@
 
 /* globals gT: true */
 
-exports.consoleLogPrefix = ''; // LOG:
-exports.errPrefix = 'ERR: ';
-exports.excPrefix = 'EXC: ';
-exports.indentation = '| ';
-exports.defLLLogAction = gT.engineConsts.defLLLogAction;
+import engineConsts from '../../config/engine-constants';
+
+export const consoleLogPrefix = ''; // LOG:
+export const errPrefix = 'ERR: ';
+export const excPrefix = 'EXC: ';
+export const indentation = '| ';
+export const defLLLogAction = engineConsts.defLLLogAction;
 
 // exports.firstIndent = '|-'

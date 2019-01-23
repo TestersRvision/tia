@@ -2,14 +2,14 @@
 
 /* globals gIn */
 
-const mPath = require('path');
-const fileUtils = require('../utils/file-utils');
+import mPath from 'path';
+import * as fileUtils from '../utils/file-utils';
 
-exports.isPassCountingEnabled = true;
-exports.isPassPrintingEnabled = true;
+export const isPassCountingEnabled = true;
+export const isPassPrintingEnabled = true;
 
 // TODO: Unclear logic.
-function formLogPart(str, count) {
+function formLogPart(str: string, count: number) {
   let strNew = str;
   if (!count) {
     strNew = strNew.toLowerCase();
@@ -28,7 +28,7 @@ function formLogPart(str, count) {
  * @param parameters.noTitle
  * @returns {String}
  */
-exports.testInfoToString = function testInfoToString(parameters) {
+export function testInfoToString(parameters) {
   const {
     curInfo, isDir, verbose, noTime, noTitle, noEol,
   } = parameters;
@@ -86,7 +86,7 @@ exports.testInfoToString = function testInfoToString(parameters) {
  *
  * @param isDir - true - directory, false - file.
  */
-exports.createTestInfo = function createTestInfo(isDir, title, path) {
+export function createTestInfo(isDir, title, path) {
   const info = {
     path: gIn.textUtils.winToUnixSep(path), // For uniform logging.
     title,
@@ -107,18 +107,18 @@ exports.createTestInfo = function createTestInfo(isDir, title, path) {
   return info;
 };
 
-exports.addFail = function addFail() {
+export function addFail() {
   if (gIn.config.ignorePassAndFailCounters) {
     return;
   }
   exports.data.failed++; // From global sandbox.
 };
 
-exports.addPassForce = function addPassForce() {
+export function addPassForce() {
   exports.data.passed++;
 };
 
-exports.addPass = function addPass() {
+export function addPass() {
   if (!exports.isPassCountingEnabled || gIn.config.ignorePassAndFailCounters) {
     return;
   }
