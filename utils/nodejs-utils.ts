@@ -2,9 +2,9 @@
 
 /* global gIn */
 
-const path = require('path');
-const { inspect } = require('util');
-const _ = require('lodash');
+import _ from 'lodash';
+import path from 'path';
+import {inspect} from 'util';
 
 /**
  * Clears 'require' cache for specified node module.

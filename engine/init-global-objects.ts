@@ -34,7 +34,7 @@ import wdModule from 'selenium-webdriver';
   // gIn: GlobalInnerObject,
 // }
 
-declare const global: any;
+// declare const global: any;
 
 const sOrig = {
   browserLogType: wdModule.logging.Type.BROWSER,
@@ -45,7 +45,7 @@ const sOrig = {
 // global.gIn = {}; // Global object as namespace for inner objects.
 
 // gIn
-import configUtils from '../utils/config-utils';
+import * as configUtils from '../utils/config-utils';
 
 // gIn.configUtils = configUtils;
 
@@ -56,19 +56,19 @@ import engineConsts from '../config/engine-constants';
 import suiteConfigDefault from '../config/default-suite-config';
 
 // gT
-import * as globalConfigDefault from '../config/default-global-config';
+import globalConfigDefault from '../config/default-global-config';
 
 // gT
-import * as dirConfigDefault from '../config/default-dir-config';
+import dirConfigDefault from '../config/default-dir-config';
 
 // gIn
 import * as loggerCfg from './loggers/logger-cfg';
 
 // gIn
-import cLogger from './loggers/console-logger';
+import * as cLogger from './loggers/console-logger';
 
 // gIn
-import api from '../api/api-index';
+import * as api from '../api/api-index';
 
 // gIn
 import * as logger from './loggers/logger';
@@ -77,10 +77,8 @@ import * as logger from './loggers/logger';
 import * as tracer from './tracer';
 
 // gT
-import commonMiscUtils = require('../common-utils/common-misc-utils');
-
-// gT
 import commonConsts = require('../common-utils/common-constants');
+import commonMiscUtils = require('../common-utils/common-misc-utils');
 
 // gIn
 import * as fileUtils from '../utils/file-utils';
@@ -106,8 +104,14 @@ import * as remoteDriverUtils from '../utils/remote-driver-utils';
 // gT
 import * as nodeUtils from '../utils/nodejs-utils';
 
+import * as log from '../api/log/log';
+import rStreamToLog from '../api/log/r-stream-to-log';
+import winstonMock from '../api/log/winston-mock';
+
 // gIn
 import * as wrap from './wrap';
+
+// const globalAny: Global = global;
 
 global.gT = {
   browsers: [
@@ -115,16 +119,42 @@ global.gT = {
     'phantomjs',
     'firefox',
   ],
+
+  // Js utils common for browser and node.js.
+  commonConsts,
+  commonMiscUtils,
+
   dirConfigDefault,
   engineConsts,
   globalConfigDefault,
+  l: log,
+
+  logUtils: {
+    rStreamToLog,
+    winstonMock,
+  },
+
+  nodeUtils,
   sOrig,
   suiteConfigDefault,
+  timeUtils,
   version: '',
 };
 
 global.gIn = {
+  api,
+  cLogger,
   configUtils,
+  diffUtils,
+  fileUtils,
+  logger,
   loggerCfg,
-
+  mailUtils,
+  remoteDriverUtils,
+  tInfo,
+  textUtils,
+  tracePrefix: '',
+  tracer,
+  wrap,
 };
+

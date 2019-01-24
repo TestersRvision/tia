@@ -2,7 +2,7 @@
 
 // Default suite config.
 // These options are not overrided by directories configs.
-module.exports = {
+const defaultSuiteConfig = {
 
   // Should TIA write info about directories without tests (or with skip: true) into summary log.
   emptyDirToSuiteLog: false,
@@ -39,3 +39,5 @@ module.exports = {
   // password of the user to send mail on behalf of.
   mailPassword: '',
 };
+
+export default defaultSuiteConfig;

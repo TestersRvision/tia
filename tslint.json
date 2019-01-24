@@ -8,6 +8,7 @@
     "no-unused-expression": true
   },
   "rules": {
+    "no-console": false,
     "eofline": true,
     "quotemark": [
       true,
@@ -66,5 +67,5 @@
     ]
   },
   "rulesDirectory": [],
-  "no-namespace": [true, "allow-declarations"]
+  "no-namespace": [false, "allow-declarations"]
 }

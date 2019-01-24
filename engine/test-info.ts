@@ -111,16 +111,18 @@ export function addFail() {
   if (gIn.config.ignorePassAndFailCounters) {
     return;
   }
-  exports.data.failed++; // From global sandbox.
+
+  // gIn.tInfo.data
+  gIn.tInfo.data.failed++; // From global sandbox.
 };
 
 export function addPassForce() {
-  exports.data.passed++;
+  gIn.tInfo.data.passed++;
 };
 
 export function addPass() {
   if (!exports.isPassCountingEnabled || gIn.config.ignorePassAndFailCounters) {
     return;
   }
-  exports.data.passed++; // From global sandbox.
+  gIn.tInfo.data.passed++; // From global sandbox.
 };

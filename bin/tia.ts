@@ -20,8 +20,8 @@ import createArgs = require('minimist');
 import { inspect } from 'util';
 
 import runTestSuites from '../engine/runner';
-import argConsts = require('../utils/arg-consts');
-import helpUtils = require('../utils/help-utils');
+import argConsts from '../utils/arg-consts';
+import * as helpUtils from '../utils/help-utils';
 import nodeUtils = require('../utils/nodejs-utils');
 import tiaArgsUtils = require('../utils/tia-arguments-utils');
 

@@ -21,7 +21,7 @@ function createBrowserProfile() {
  * But default value if false if there is not custom user profile.
  * There is an issue with custom profile on Windows. Profile is not saved after browser closing.
  */
-exports.init = function init(cleanProfile, logAction) {
+export function init(cleanProfile, logAction) {
   if (typeof logAction === 'undefined' && !gIn.config.selProfilePath) {
     logAction = false;
   }
@@ -229,7 +229,7 @@ exports.init = function init(cleanProfile, logAction) {
  *
  * @returns {Promise}
  */
-exports.sleep = function sleep(ms, logAction) {
+export function sleep(ms, logAction) {
   return gIn.wrap(`Sleep ${ms} ms ... `, logAction, () => gT.u.promise.delayed(ms, true));
 };
 
@@ -239,7 +239,7 @@ const stupidSleep = 400;
  * This function creates function for stupid sleep.
  * It is stupid sleep instead of smart waiting for something.
  */
-exports.getStupidSleepFunc = function getStupidSleepFunc() {
+export function getStupidSleepFunc() {
   return function() {
     return exports.sleep(stupidSleep, false);
   };
@@ -252,7 +252,7 @@ exports.getStupidSleepFunc = function getStupidSleepFunc() {
  * otherwise - false.
  * @returns {*}
  */
-exports.quit = function quit(logAction) {
+export function quit(logAction) {
   if (gIn.params.ejExplore) {
     gIn.tracer.msg3('quit: ejExplore, no quit');
     return Promise.resolve('ejExplore, no quit');
@@ -279,7 +279,7 @@ exports.quit = function quit(logAction) {
 /**
  * Quit if driver is initiated and if there is not ejExplore mode.
  */
-exports.quitIfInited = function quitIfInited() {
+export function quitIfInited() {
   if (gIn.params.ejExplore) {
     gIn.tracer.msg3('quitIfInited: ejExplore, no quit');
     return Promise.resolve('ejExplore, no quit');
@@ -295,7 +295,7 @@ exports.quitIfInited = function quitIfInited() {
   return Promise.resolve('No driver, no quit');
 };
 
-exports.printSelDriverLogs = function printSelDriverLogs(minValue) {
+export function printSelDriverLogs(minValue) {
   return gT.sOrig.logs.get(gT.sOrig.driverLogType).then(entries => {
     gIn.tracer.msg3('Start of printSelDriverLogs');
     for (const entry of entries) {

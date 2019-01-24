@@ -14,8 +14,6 @@ if (!process.env.TIA_NO_COLORS) {
 // exports.chalk = chalk;
 // exports.isChalkEnabled = isChalkEnabled;
 
-gIn.tracePrefix = '';
-
 /**
  * Tracks EOL of last message printed to console.
  * Also msg can be boolean - true means there is EOL.
@@ -33,16 +31,16 @@ function trackEOL(msg) {
  * Writes message to stdout as is.
  * @param message
  */
-exports.msg = function msg(message) {
+export function msg(message) {
   process.stdout.write(message);
   trackEOL(message);
 };
 
-exports.msgln = function msgln(msg) {
+export function msgln(msg) {
   exports.msg(`${msg}\n`);
 };
 
-exports.logResourcesUsage = function logResourcesUsage(prefix = '') {
+export function logResourcesUsage(prefix = '') {
   // if (gIn.config.resUsagePrintAtErrors) {
   exports.msgln(prefix + gT.nodeUtils.getResourcesUsage(true));
 
@@ -55,7 +53,7 @@ exports.logResourcesUsage = function logResourcesUsage(prefix = '') {
  * @param msg
  * @returns {*}
  */
-exports.chalkWrap = function chalkWrap(chalkProps, msg) {
+export function chalkWrap(chalkProps, msg) {
   let resMsg = msg;
   if (isChalkEnabled) {
     if (typeof chalkProps === 'string') {
@@ -73,7 +71,7 @@ exports.chalkWrap = function chalkWrap(chalkProps, msg) {
  * Writes string from dif to console.
  * @param msg
  */
-exports.msgDifStr = function msgDifStr(msg) {
+export function msgDifStr(msg) {
   process.stdout.write(exports.chalkWrap(['yellow', 'bold'], msg));
   trackEOL(msg);
 };
@@ -82,7 +80,7 @@ exports.msgDifStr = function msgDifStr(msg) {
  * Writes string for debug tracing.
  * @param msg
  */
-exports.msgDbg = function msgDbg(msg) {
+export function msgDbg(msg) {
   process.stdout.write(`${exports.chalkWrap(['cyan', 'bold'], msg)}\n`);
   trackEOL(true);
 };
@@ -91,7 +89,7 @@ exports.msgDbg = function msgDbg(msg) {
  * Writes msg to stdout using red ANSI color code.
  * @param msg
  */
-exports.err = function err(msg) {
+export function err(msg) {
   let resMsg = msg;
   if (isChalkEnabled) {
     resMsg = chalk.red(resMsg);
@@ -101,7 +99,7 @@ exports.err = function err(msg) {
 };
 
 
-exports.errln = function errln(msg) {
+export function errln(msg) {
   exports.err(`${msg}\n`);
 };
 
@@ -112,7 +110,7 @@ exports.errln = function errln(msg) {
  * Otherwise - does nothing.
  * @param msg
  */
-exports.logIfEnabled = function logIfEnabled(msg) {
+export function logIfEnabled(msg) {
   if (gIn.params.logToConsole) {
     exports.msg(gIn.loggerCfg.consoleLogPrefix + msg);
   }
@@ -123,13 +121,13 @@ exports.logIfEnabled = function logIfEnabled(msg) {
  * @param msg
  * Prefix should be set in caller.
  */
-exports.errIfEnabled = function errIfEnabled(msg) {
+export function errIfEnabled(msg) {
   if (gIn.params.errToConsole) {
     return exports.err(msg);
   }
 };
 
-exports.passIfEnabled = function passIfEnabled(msg) {
+export function passIfEnabled(msg) {
   let resMsg = msg;
   if (gIn.params.logToConsole) {
     if (isChalkEnabled) {
@@ -139,7 +137,7 @@ exports.passIfEnabled = function passIfEnabled(msg) {
   }
 };
 
-exports.failIfEnabled = function failIfEnabled(msg) {
+export function failIfEnabled(msg) {
   let resMsg = msg;
   if (gIn.params.logToConsole) {
     if (isChalkEnabled) {
@@ -151,7 +149,7 @@ exports.failIfEnabled = function failIfEnabled(msg) {
 
 // =====================================
 
-exports.logBold = function logBold(msg) {
+export function logBold(msg) {
   let resMsg = msg;
   if (gIn.params.logToConsole) {
     if (isChalkEnabled) {

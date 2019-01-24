@@ -5,4 +5,3 @@ a.true(typeof gIn !== 'undefined', 'gIn exists');
 a.true('config' in gIn, 'gIn.config exists');
 a.true('tInfo' in gIn, 'gIn.tInfo exists');
 a.true('data' in gIn.tInfo, 'gIn.tInfo.data exists');
-

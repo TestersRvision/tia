@@ -25,5 +25,3 @@ l.println(result(obj, 'd.0'));
 l.println(result(obj, 'e'));
 l.println(result(obj, 'e.f', 'default for e.f'));
 l.println(result(obj, 'g.f', 'default for g.f'));
-
-

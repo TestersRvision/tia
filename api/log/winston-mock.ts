@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+import _ from 'lodash';
 
 const funcs = [
   'error',
@@ -15,7 +15,7 @@ const funcs = [
  *
  * @param prefix - to add to the first argument.
  */
-module.exports = function winstonMock(prefix) {
+export default function winstonMock(prefix) {
   let allowedLevel;
 
   const logger = {};

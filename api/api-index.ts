@@ -18,7 +18,7 @@
  * Utilities for logging.
  * @type {{}}
  */
-require('./log/log-index');
+// require('./log/log-index');
 
 // ==================================================
 

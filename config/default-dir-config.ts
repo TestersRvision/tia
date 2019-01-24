@@ -2,7 +2,7 @@
 
 // The default config for test directories.
 // Options can be overloaded in directory configs.
-module.exports = {
+const defaultDirConfig = {
 
   // Some functions can write some info to the Test log.
 
@@ -92,3 +92,4 @@ module.exports = {
   // If false - there will not be section with detailed results.
 };
 
+export default defaultDirConfig;
