@@ -19,6 +19,19 @@ const createArgs = require('minimist');
 const { inspect } = require('util');
 const _ = require('lodash');
 
+const tiaDir = path.resolve(path.join(__dirname, '..'));
+
+require('ts-node').register({
+  ignore: [],
+  transpileOnly: true,
+  compilerOptions: {
+    baseUrl: tiaDir,
+    allowJs: false,
+    target: 'ES2017',
+    moduleResolution: 'Classic',
+  },
+});
+
 const nodeUtils = require('../utils/nodejs-utils');
 const argConsts = require('../utils/arg-consts.js');
 const helpUtils = require('../utils/help-utils.js');
